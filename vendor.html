@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Vendor Job · Speedy Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div id="header"></div>
+    <h1>Vendor Job</h1>
+    <p class="muted">Assigned vendors only. Enter the customer ticket id Marvin sent and your vendor phone. This is not the customer ticket screen and not the shop desk.</p>
+    <form onsubmit="event.preventDefault(); document.getElementById('msg').hidden=false;">
+      <label for="ticket">Ticket id</label>
+      <input id="ticket" class="field" placeholder="SN-XXXXXX" />
+      <label for="phone">Your vendor phone</label>
+      <input id="phone" class="field" inputmode="tel" />
+      <button class="btn btn-gold" type="submit">Open assigned job</button>
+    </form>
+    <p id="msg" class="note ok" hidden>Ticket received. Marvin’s desk will open the assigned job for that vendor phone.</p>
+    <p class="note"><a href="apply.html" style="color:#f0c94a">Apply as a vendor</a></p>
+  </div>
+  <div id="nav" data-active="Vendor"></div>
+  <script src="brand.js"></script>
+</body>
+</html>

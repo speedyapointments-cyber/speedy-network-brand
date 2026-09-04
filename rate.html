@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Rate a Mechanic · Speedy Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div id="header"></div>
+    <h1>Rate a Mechanic</h1>
+    <p class="muted">Star ratings after jobs. Only mechanics Marvin already approved. Pending applicants are not listed.</p>
+    <div class="card">
+      <b>Marcus Hale</b>
+      <div class="note" style="margin:4px 0 0">Brakes (install)</div>
+      <div class="note">5.0★ · 1 ratings</div>
+    </div>
+    <form id="rate-form">
+      <label for="mech">Mechanic</label>
+      <select id="mech" class="field">
+        <option value="">Choose a mechanic</option>
+        <option>Marcus Hale</option>
+      </select>
+      <label for="name">Your name</label>
+      <input id="name" class="field" />
+      <label>Stars</label>
+      <div class="stars" id="stars">
+        <button type="button" class="star-btn" data-n="1">1★</button>
+        <button type="button" class="star-btn" data-n="2">2★</button>
+        <button type="button" class="star-btn" data-n="3">3★</button>
+        <button type="button" class="star-btn" data-n="4">4★</button>
+        <button type="button" class="star-btn" data-n="5">5★</button>
+      </div>
+      <label for="comment">Comment</label>
+      <textarea id="comment" class="field" rows="4"></textarea>
+      <button class="btn btn-gold" type="submit">Save rating</button>
+      <p id="saved" class="note ok" hidden>Rating saved. Thank you.</p>
+    </form>
+  </div>
+  <div id="nav" data-active="Rate"></div>
+  <script src="brand.js"></script>
+  <script>
+    let stars = 5;
+    document.querySelectorAll(".star-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        stars = Number(btn.dataset.n);
+        document.querySelectorAll(".star-btn").forEach((b) => b.classList.toggle("on", Number(b.dataset.n) === stars));
+      });
+    });
+    document.querySelector('[data-n="5"]').classList.add("on");
+    document.getElementById("rate-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      document.getElementById("saved").hidden = false;
+    });
+  </script>
+</body>
+</html>

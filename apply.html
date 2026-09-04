@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Apply · Speedy Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div id="header"></div>
+    <h1>I’m a mechanic</h1>
+    <p class="muted">Apply to Speedy Network. Pick each skill separately. Marvin approves before you show on Rate.</p>
+    <form onsubmit="event.preventDefault(); document.getElementById('ok').hidden=false;">
+      <label>Full name</label><input class="field" required />
+      <label>Phone</label><input class="field" required inputmode="tel" />
+      <label>Skill</label>
+      <select class="field">
+        <option>Brakes</option>
+        <option>Diagnostics</option>
+        <option>Battery / electrical</option>
+        <option>Roadside</option>
+        <option>Tint</option>
+        <option>General repair</option>
+      </select>
+      <label>About your work</label>
+      <textarea class="field" rows="4"></textarea>
+      <button class="btn btn-gold" type="submit">Submit application</button>
+      <p id="ok" class="note ok" hidden>Application received. Pending applicants are not listed until Marvin approves.</p>
+    </form>
+  </div>
+  <div id="nav" data-active="Home"></div>
+  <script src="brand.js"></script>
+</body>
+</html>
