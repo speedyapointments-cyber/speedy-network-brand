@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Speedy Network preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; background: #000; color: #f5f0e6; font-family: Sora, system-ui, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 480px; margin: 0 auto; min-height: 100dvh; padding: 0 18px 110px; }
+    .brand-bar { display: flex; align-items: center; gap: 12px; padding: 12px 0 10px; }
+    .brand-bar .badges { height: 64px; width: auto; display: block; }
+    .brand-bar .word { display: flex; flex-direction: column; line-height: 1.05; }
+    .brand-bar .word strong { font-size: 17px; font-weight: 700; color: #fff; }
+    .brand-bar .word span { font-size: 12px; font-weight: 600; color: #fff; }
+    .note { color: #a89f8f; font-size: 13px; line-height: 1.45; margin: 10px 0; }
+    .hours { color: #fff; font-size: 14px; line-height: 1.55; }
+    .hours b { color: #c9a227; }
+    .btn { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; border: none; border-radius: 14px; padding: 16px 14px; margin: 10px 0; font-weight: 700; letter-spacing: .03em; text-align: center; }
+    .btn small { font-weight: 500; opacity: .8; margin-top: 3px; font-size: 12px; }
+    .btn-gold { background: #c9a227; color: #111; }
+    .btn-ghost { background: transparent; border: 1.5px solid #fff; color: #fff; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .bottom { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; border-top: 1px solid #1c1c1c; background: #111; display: grid; grid-template-columns: repeat(4, 1fr); padding: 10px 8px calc(10px + env(safe-area-inset-bottom)); max-width: 480px; margin: 0 auto; }
+    .bottom a { text-align: center; font-size: 12px; color: #9a9a9a; padding: 6px 0; font-weight: 600; }
+    .bottom a.on { color: #c9a227; }
+    .splash { position: fixed; inset: 0; z-index: 80; background: #000; display: grid; place-items: center; transition: opacity .7s ease; }
+    .splash .sting { width: min(86vw, 360px); height: auto; display: block; animation: sting 4.6s ease forwards; filter: drop-shadow(0 0 18px rgba(201,162,39,.45)); }
+    @keyframes sting {
+      0% { opacity: 0; transform: scale(.88); }
+      18% { opacity: 1; transform: scale(.98); }
+      100% { opacity: 1; transform: scale(1.04); }
+    }
+    .splash .skip { position: absolute; bottom: calc(28px + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); background: transparent; border: 1px solid rgba(212,175,55,.28); color: #f0c94a; border-radius: 999px; padding: 8px 16px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; }
+    .splash.gone { opacity: 0; pointer-events: none; }
+  </style>
+</head>
+<body>
+  <div class="splash" id="splash">
+    <img class="sting" src="https://static.wixstatic.com/media/d5cd96_19236b40475a4321b097fcf9e73b3836~mv2.png" alt="SPEEDY MOBILE AUTO REPAIR AND SHOP SERVICES" />
+    <button class="skip" type="button" id="skip">Tap to enter</button>
+  </div>
+  <div class="wrap">
+    <header class="brand-bar">
+      <img class="badges" src="https://static.wixstatic.com/media/d5cd96_8541d633f2374a7786db3684c7d15624~mv2.png" alt="Speedy dual gold emblems" />
+      <div class="word">
+        <strong>Speedy Mobile Auto</strong>
+        <span>and Shop Services</span>
+      </div>
+    </header>
+    <p class="note">Text START first so we can reply.</p>
+    <p class="hours"><b>Hours:</b> Mon–Fri 8am–6pm, Sat 8am–2pm.</p>
+    <p class="hours"><b>24 Hour Roadside Assistance:</b> 704-835-2577</p>
+    <p class="hours">6016 McDaniel Lane Suite D, Charlotte NC 28213</p>
+    <div class="row">
+      <a class="btn btn-gold" href="https://portal.ari.app/b/kCHD15A2N0Vobeo5jdgZhwQBJTA3">BOOK</a>
+      <a class="btn btn-ghost" href="tel:+17048352577">ROADSIDE</a>
+    </div>
+    <a class="btn btn-gold" href="sms:+17048352577">TEXT AVA</a>
+  </div>
+  <nav class="bottom">
+    <a href="preview.html" class="on">Home</a>
+    <a href="vendor.html">Vendor</a>
+    <a href="rate.html">Rate</a>
+    <a href="shop.html">Shop</a>
+  </nav>
+  <script>
+    const splash = document.getElementById("splash");
+    const hide = () => splash && splash.classList.add("gone");
+    document.getElementById("skip").addEventListener("click", hide);
+    splash.addEventListener("click", hide);
+    setTimeout(hide, 4200);
+  </script>
+</body>
+</html>
